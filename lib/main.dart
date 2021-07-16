@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:swinderweb/home.dart';
+import 'package:swinderweb/privacy.dart';
+
+import 'home.dart';
 
 void main() {
   runApp(
@@ -23,11 +26,16 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       checkerboardRasterCacheImages: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePageView(),
+        '/privacy': (context) => Privacy(),
+      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePageView(),
+      // home: HomePageView(),
     );
   }
 }

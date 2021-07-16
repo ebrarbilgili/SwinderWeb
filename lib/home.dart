@@ -29,11 +29,34 @@ class HomePageView extends StatelessWidget {
                 buildSecondWrap(context),
                 Divider(color: grey),
                 box(context, 0.01),
-                Center(
-                    child: Text(
-                  'SWINDER © 2021',
-                  style: TextStyle(color: grey),
-                )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'SWINDER © 2021',
+                      style: TextStyle(color: grey),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                      child: VerticalDivider(
+                        color: grey,
+                        width: MediaQuery.of(context).size.height * 0.04,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        return Navigator.of(context).pushNamed('/privacy');
+                      },
+                      child: Text(
+                        'privacy'.tr(),
+                        style: TextStyle(
+                          color: grey,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 box(context, 0.01),
               ],
             ),
@@ -46,6 +69,12 @@ class HomePageView extends StatelessWidget {
   Center buildNavBar(BuildContext context) => Center(
         child: Image.network(
           'http://swinderapp.com/assets/logo2.png',
+          errorBuilder: (context, error, stackTrace) {
+            return Image.asset(
+              'assets/logo2.png',
+              height: MediaQuery.of(context).size.height * 0.14,
+            );
+          },
           height: MediaQuery.of(context).size.height * 0.14,
         ),
       );
@@ -80,6 +109,12 @@ class HomePageView extends StatelessWidget {
               ),
               Image.network(
                 'http://swinderapp.com/assets/iphonexpreview2.jpg',
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    'assets/iphonexpreview2.jpg',
+                    height: MediaQuery.of(context).size.height * 0.8,
+                  );
+                },
                 height: MediaQuery.of(context).size.height * 0.8,
               ),
             ],
@@ -96,6 +131,12 @@ class HomePageView extends StatelessWidget {
             children: [
               Image.network(
                 'http://swinderapp.com/assets/iphonex.jpg',
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    'assets/iphonex.jpg',
+                    height: MediaQuery.of(context).size.height * 0.8,
+                  );
+                },
                 height: MediaQuery.of(context).size.height * 0.8,
               ),
               Column(
@@ -108,6 +149,12 @@ class HomePageView extends StatelessWidget {
                       CupertinoButton(
                         child: Image.network(
                           'http://swinderapp.com/assets/appstore_download.png',
+                          errorBuilder: (context, error, stackTrace) {
+                            return Image.asset(
+                              'assets/appstore_download.png',
+                              height: MediaQuery.of(context).size.height * 0.1,
+                            );
+                          },
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
                         onPressed: () async {
@@ -119,6 +166,12 @@ class HomePageView extends StatelessWidget {
                       CupertinoButton(
                         child: Image.network(
                           'http://swinderapp.com/assets/playstore_download.png',
+                          errorBuilder: (context, error, stackTrace) {
+                            return Image.asset(
+                              'assets/playstore_download.png',
+                              height: MediaQuery.of(context).size.height * 0.1,
+                            );
+                          },
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
                         onPressed: () async {
